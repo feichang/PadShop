@@ -48,8 +48,8 @@
             margin: 0 auto;
         }
         #controller{
-            width: 400px;
-            height: 400px;
+            width: 200px;
+            height: 200px;
             background: #f40;
         }
         #log{
@@ -71,7 +71,10 @@
         KISSY.ready(function(S){
             var $ = S.Node.all;
 
-            $('#controller').on('tapHold tap doubleTap singleTap swipe rotateStart rotate rotateEnd', function(e){
+            $('#controller').on('tapHold tap doubleTap singleTap swipe rotateStart rotate rotateEnd pinchStart', function(e){
+                $('#log').html(e.type + ' fired!');
+            });
+            $(window).on('shake', function(e){
                 $('#log').html(e.type + ' fired!');
             });
         });
